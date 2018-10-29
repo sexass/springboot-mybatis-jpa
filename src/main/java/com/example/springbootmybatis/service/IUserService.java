@@ -3,6 +3,8 @@ package com.example.springbootmybatis.service;
 import com.example.springbootmybatis.model.UserModel;
 import com.example.springbootmybatis.model.UserWithDepartmentInfoDto;
 
+import java.util.List;
+
 /**
  * @Author:郭友文
  * @Data:2018/10/15 15:10
@@ -14,4 +16,5 @@ public interface IUserService {
     UserModel get(Long id);
     UserWithDepartmentInfoDto getInfo(Long id);
     UserWithDepartmentInfoDto getInfoByXmlMapper(Long id);
+    List<UserModel> findByDepartment(Long id);
 }

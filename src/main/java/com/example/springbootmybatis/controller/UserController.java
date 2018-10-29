@@ -10,6 +10,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.util.List;
+
 /**
  * @Author:郭友文
  * @Data:2018/10/15 15:00
@@ -42,5 +44,15 @@ public class UserController {
     public String getWithDepartmentInfoByXmlMapper(Long id){
         UserWithDepartmentInfoDto info=userService.getInfoByXmlMapper(id);
         return "userName:"+info.getUserName()+"\nsex:"+info.getSex()+"\ndepartment:"+info.getDepartmentName();
+    }
+
+    @RequestMapping(value = "/getByDepartment",method = RequestMethod.GET)
+    public String getByDepartment(Long id){
+        List<UserModel> users=userService.findByDepartment(id);
+        StringBuilder sb=new StringBuilder();
+        for(UserModel user:users){
+            sb.append("userName:"+user.getName()+"\nsex:"+user.getSex()+"\nage:"+user.getAge()+"\n\n");
+        }
+        return sb.toString();
     }
 }

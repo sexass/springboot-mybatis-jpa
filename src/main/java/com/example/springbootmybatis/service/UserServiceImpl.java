@@ -9,6 +9,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.List;
+
 /**
  * @Author:郭友文
  * @Data:2018/10/15 15:10
@@ -47,6 +49,12 @@ public class UserServiceImpl implements IUserService {
     public UserWithDepartmentInfoDto getInfoByXmlMapper(Long id) {
         UserWithDepartmentInfoDto info=userModelXmlMapper.findOne(id);
         return info;
+    }
+
+    @Override
+    public List<UserModel> findByDepartment(Long id) {
+        List<UserModel> userModelList=userModelXmlMapper.findByDepartment(id);
+        return userModelList;
     }
 
 }

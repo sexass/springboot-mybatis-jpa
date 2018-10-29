@@ -133,4 +133,10 @@
     from user u,department d
     where u.department_id=d.id and u.id = #{id,jdbcType=BIGINT}
   </select>
+  <select id="findByDepartment" parameterType="java.lang.Long" resultType="com.example.springbootmybatis.model.UserModel">
+    select
+      *
+    from user u
+    where u.department_id = #{id,jdbcType=BIGINT}
+  </select>
 </mapper>

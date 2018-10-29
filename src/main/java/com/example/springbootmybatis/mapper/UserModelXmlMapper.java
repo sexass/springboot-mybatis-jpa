@@ -23,4 +23,6 @@ public interface UserModelXmlMapper {
     UserModel selectByPrimaryKey(Long id);
 
     UserWithDepartmentInfoDto findOne(Long id);
+
+    List<UserModel> findByDepartment(Long id);
 }
