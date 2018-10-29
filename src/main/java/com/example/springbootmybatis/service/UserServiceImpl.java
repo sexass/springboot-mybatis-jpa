@@ -2,6 +2,7 @@ package com.example.springbootmybatis.service;
 
 import com.example.springbootmybatis.dao.UserRepository;
 import com.example.springbootmybatis.mapper.UserModelMapper;
+import com.example.springbootmybatis.mapper.UserModelXmlMapper;
 import com.example.springbootmybatis.model.UserModel;
 import com.example.springbootmybatis.model.UserWithDepartmentInfoDto;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -19,6 +20,8 @@ public class UserServiceImpl implements IUserService {
     private UserModelMapper userModelMapper;
     @Autowired
     private UserRepository userRepository;
+    @Autowired
+    private UserModelXmlMapper userModelXmlMapper;
 
 
     @Override
@@ -39,4 +42,11 @@ public class UserServiceImpl implements IUserService {
         UserWithDepartmentInfoDto info=userModelMapper.findOne(id);
         return info;
     }
+
+    @Override
+    public UserWithDepartmentInfoDto getInfoByXmlMapper(Long id) {
+        UserWithDepartmentInfoDto info=userModelXmlMapper.findOne(id);
+        return info;
+    }
+
 }

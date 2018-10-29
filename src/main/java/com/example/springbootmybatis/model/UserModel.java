@@ -8,9 +8,9 @@ public class UserModel {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
-
     @Column(name = "name")
     private String name;
+
     @Column(name = "sex")
     private String sex;
     @Column(name = "age")
@@ -18,24 +18,16 @@ public class UserModel {
     @Column(name = "department_id")
     private Long departmentId;
 
-
-    public UserModel(Long id, String name, String sex, Integer age) {
+    public UserModel(Long id, String name, String sex, Integer age, Long departmentId) {
         this.id = id;
         this.name = name;
         this.sex = sex;
         this.age = age;
+        this.departmentId = departmentId;
     }
 
     public UserModel() {
         super();
-    }
-
-    public Long getDepartmentId() {
-        return departmentId;
-    }
-
-    public void setDepartmentId(Long departmentId) {
-        this.departmentId = departmentId;
     }
 
     public Long getId() {
@@ -68,5 +60,13 @@ public class UserModel {
 
     public void setAge(Integer age) {
         this.age = age;
+    }
+
+    public Long getDepartmentId() {
+        return departmentId;
+    }
+
+    public void setDepartmentId(Long departmentId) {
+        this.departmentId = departmentId;
     }
 }

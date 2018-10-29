@@ -38,4 +38,9 @@ public class UserController {
         UserWithDepartmentInfoDto info=userService.getInfo(id);
         return "userName:"+info.getUserName()+"\nsex:"+info.getSex()+"\ndepartment:"+info.getDepartmentName();
     }
+    @RequestMapping(value = "/getInfoByXmlMapper",method = RequestMethod.GET)
+    public String getWithDepartmentInfoByXmlMapper(Long id){
+        UserWithDepartmentInfoDto info=userService.getInfoByXmlMapper(id);
+        return "userName:"+info.getUserName()+"\nsex:"+info.getSex()+"\ndepartment:"+info.getDepartmentName();
+    }
 }

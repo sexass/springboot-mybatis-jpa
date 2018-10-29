@@ -13,4 +13,5 @@ public interface IUserService {
     void add(UserModel user);
     UserModel get(Long id);
     UserWithDepartmentInfoDto getInfo(Long id);
+    UserWithDepartmentInfoDto getInfoByXmlMapper(Long id);
 }
